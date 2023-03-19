@@ -38,19 +38,19 @@ export default function Navbar(props) {
           style={{backgroundColor:props.mode==='light'?'#393633':'white', color:props.mode==='light'?'white':'black'}}
         ></textarea>
     </div>
-        <button className="btn btn-primary" onClick={handleClick} >LowerCase</button>
-        <button className="btn btn-primary mx-4" onClick={handleClickUpper} >UpperCase</button>
-        <button className="btn btn-primary mx-2" onClick={handleClickClear} >Clear Text</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-3" onClick={handleClick} >LowerCase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-4 my-3" onClick={handleClickUpper} >UpperCase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-3" onClick={handleClickClear} >Clear Text</button>
     </div>
 
     <div className="container my-3">
       <h2>Your text summary</h2>
-      <p>your text have {text.length} character and {text.split(" ").length} words </p> 
+      <p>your text have {text.length} character and {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words </p> 
     </div>
 
     <div className="container">
       <h3>Preview</h3>
-      <p>{text}</p>
+      <p>{text.length>0?text:"Nothing to preview"}</p>
     </div>
     
     </>

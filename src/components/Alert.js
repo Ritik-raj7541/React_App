@@ -7,6 +7,8 @@ function capital(word){
 
 function Alert(props) {
   return (
+    <div style={{height:'50px'}}>
+      {
       props.alert &&
     <>
       <div
@@ -23,6 +25,8 @@ function Alert(props) {
         </button>
       </div>
     </>
+}
+    </div>
   );
 }
 
